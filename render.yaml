@@ -9,11 +9,6 @@ services:
     envVars:
       - key: PORT
         value: 10000
-      - key: FRONTEND_URL
-        fromService:
-          type: web
-          name: portfolio-frontend
-          property: host
       # Add these manually in Render dashboard for production email sending:
       # - SMTP_USER
       # - SMTP_PASS
