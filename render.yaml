@@ -19,7 +19,7 @@ services:
       # - SMTP_PASS
 
   # Frontend Static Site
-  - type: pwa
+  - type: web
     name: portfolio-frontend
     env: static
     buildCommand: npm run build
