@@ -126,9 +126,9 @@ export const skills = {
 export const experience = [
     {
         id: 1,
-        company: "TechCorp",
-        position: "Senior Full-Stack Engineer",
-        duration: "2021 - Present",
+        company: "Ethara AI",
+        position: "AI Intern",
+        duration: "2025 - Jan 2026",
         description: "Lead development of microservices architecture serving 10M+ users. Mentored team of 6 engineers and drove adoption of modern development practices.",
         longDescription: "Spearheading the platform engineering team responsible for the core microservices layer processing 50M+ daily API requests. Led the migration from a monolithic Rails application to event-driven Node.js services, reducing infrastructure costs by 35% while improving P99 latency from 800ms to 120ms.",
         responsibilities: [

@@ -13,12 +13,11 @@ services:
       # - SMTP_USER
       # - SMTP_PASS
 
+staticSites:
   # Frontend Static Site
-  - type: web
-    name: portfolio-frontend
-    env: static
+  - name: portfolio-frontend
     buildCommand: npm run build
-    staticPublishPath: ./dist
+    publishPath: dist
     envVars:
       - key: VITE_API_URL
         fromService:
