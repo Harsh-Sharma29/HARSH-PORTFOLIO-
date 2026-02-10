@@ -1,0 +1,32 @@
+services:
+  # Backend Service
+  - type: web
+    name: portfolio-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: portfolio-frontend
+          property: url
+      # Add these manually in Render dashboard for production email sending:
+      # - SMTP_USER
+      # - SMTP_PASS
+
+  # Frontend Static Site
+  - type: web
+    name: portfolio-frontend
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: portfolio-backend
+          property: url
