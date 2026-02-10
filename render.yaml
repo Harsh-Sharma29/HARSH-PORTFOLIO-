@@ -13,7 +13,7 @@ services:
         fromService:
           type: web
           name: portfolio-frontend
-          property: url
+          property: host
       # Add these manually in Render dashboard for production email sending:
       # - SMTP_USER
       # - SMTP_PASS
@@ -29,4 +29,4 @@ services:
         fromService:
           type: web
           name: portfolio-backend
-          property: url
+          property: host
