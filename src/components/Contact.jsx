@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, MapPin, Send, CheckCircle, AlertCircle, Loader2, Github, Linkedin, Twitter } from 'lucide-react';
 import { personalInfo } from '../data/content';
 import { useInView } from '../hooks/useInView';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
     const [ref, , hasBeenInView] = useInView({ threshold: 0.1 });
@@ -30,7 +31,7 @@ export default function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Basic validation
+
         if (!formData.name.trim()) return setStatus({ type: 'error', message: 'Name is required' });
         if (!validateEmail(formData.email)) return setStatus({ type: 'error', message: 'Valid email required' });
         if (!formData.message.trim()) return setStatus({ type: 'error', message: 'Message is required' });
@@ -39,31 +40,38 @@ export default function Contact() {
         setStatus({ type: '', message: '' });
 
         try {
-            let apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
-            // Ensure protocol is present if Render provides only host
-            if (!apiUrl.startsWith('http')) {
-                apiUrl = `https://${apiUrl}`;
+            const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+            const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+            const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+            if (!serviceId || !templateId || !publicKey) {
+                throw new Error('EmailJS keys missing in .env file.');
             }
 
-            const response = await fetch(`${apiUrl}/api/contact`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
+            const result = await emailjs.send(
+                serviceId,
+                templateId,
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    message: formData.message,
+                    to_name: personalInfo.name,
                 },
-                body: JSON.stringify(formData),
-            });
+                publicKey
+            );
 
-            const data = await response.json();
-
-            if (response.ok) {
-                setStatus({ type: 'success', message: 'Message sent! I\'ll respond soon.' });
+            if (result.status === 200) {
+                setStatus({ type: 'success', message: 'Message sent! Check your inbox.' });
                 setFormData({ name: '', email: '', message: '' });
             } else {
-                setStatus({ type: 'error', message: data.message || 'Something went wrong. Please try again.' });
+                throw new Error('Failed to send email.');
             }
         } catch (error) {
-            console.error('Submission error:', error);
-            setStatus({ type: 'error', message: 'Failed to send message. Please try again later.' });
+            console.error('EmailJS Error:', error);
+            setStatus({
+                type: 'error',
+                message: 'Failed to send. Please check your .env keys or try again.'
+            });
         } finally {
             setIsSubmitting(false);
         }
@@ -86,7 +94,6 @@ export default function Contact() {
 
     return (
         <section id="contact" className="section relative" ref={ref}>
-            {/* Background Accents */}
             <div className="absolute bottom-0 left-1/4 w-1/2 h-1/2 glow-orb bg-accent/10 blur-[120px]" />
 
             <div className="container-wide relative z-10">
@@ -109,7 +116,6 @@ export default function Contact() {
                     variants={stagger}
                     className="grid lg:grid-cols-5 gap-8 max-w-5xl mx-auto"
                 >
-                    {/* Info Cards */}
                     <div className="lg:col-span-2 space-y-4">
                         <motion.div variants={fadeUp} className="glass-card">
                             <div className="flex items-center gap-4">
@@ -156,7 +162,6 @@ export default function Contact() {
                         </motion.div>
                     </div>
 
-                    {/* Form */}
                     <motion.form
                         variants={fadeUp}
                         onSubmit={handleSubmit}
@@ -174,6 +179,7 @@ export default function Contact() {
                                     onChange={handleChange}
                                     className="input"
                                     placeholder="Your name"
+                                    required
                                 />
                             </div>
                             <div>
@@ -186,6 +192,7 @@ export default function Contact() {
                                     onChange={handleChange}
                                     className="input"
                                     placeholder="you@example.com"
+                                    required
                                 />
                             </div>
                         </div>
@@ -199,6 +206,7 @@ export default function Contact() {
                                 onChange={handleChange}
                                 className="input resize-none"
                                 placeholder="Your message..."
+                                required
                             />
                         </div>
 
