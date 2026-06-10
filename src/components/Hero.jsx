@@ -162,9 +162,9 @@ export default function Hero() {
                             variants={fadeUp}
                             initial="hidden"
                             animate="visible"
-                            className="mb-10 max-w-2xl mx-auto lg:mx-0"
+                            className="mb-10 max-w-2xl mx-auto lg:mx-0 pt-1"
                         >
-                            <p className="text-sm sm:text-base text-slate-400 leading-relaxed tracking-normal">
+                            <p className="text-sm text-slate-500 leading-normal font-normal">
                                 {personalInfo.bio}
                             </p>
                         </motion.div>
