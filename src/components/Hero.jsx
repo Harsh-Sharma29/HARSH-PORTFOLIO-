@@ -152,20 +152,22 @@ export default function Hero() {
                             variants={fadeUp}
                             initial="hidden"
                             animate="visible"
-                            className="text-headline sm:text-display md:text-display-lg text-gradient mb-6 text-balance tracking-tight"
+                            className="text-headline sm:text-display md:text-display-lg text-gradient mb-10 text-balance tracking-tight"
                         >
                             {personalInfo.headline}
                         </motion.h1>
 
-                        <motion.p
+                        <motion.div
                             custom={2}
                             variants={fadeUp}
                             initial="hidden"
                             animate="visible"
-                            className="text-body lg:text-body-lg text-muted leading-relaxed mb-10 max-w-2xl mx-auto lg:mx-0 tracking-normal"
+                            className="mb-10 max-w-2xl mx-auto lg:mx-0"
                         >
-                            {personalInfo.bio}
-                        </motion.p>
+                            <p className="text-sm sm:text-base text-slate-400 leading-relaxed tracking-normal">
+                                {personalInfo.bio}
+                            </p>
+                        </motion.div>
 
                         <motion.div
                             custom={3}

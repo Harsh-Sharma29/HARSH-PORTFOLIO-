@@ -4,7 +4,7 @@ export const personalInfo = {
     name: "Harsh Sharma",
     role: "AI Engineer | Building Production-Grade Agentic Infrastructure & Multi-Agent Systems",
     headline: "AI Engineer | Building Production-Grade Agentic Infrastructure & Multi-Agent Systems",
-    bio: "Specialized in designing decoupled, multi-container AI architectures. I build autonomous software agents, low-latency voice interfaces, and stateful multi-agent orchestration layers using LangGraph, FastAPI, and Docker. Focused on breaking the constraints of standard wrapper apps by bringing production-grade stability, deterministic routing, and sandboxed execution loops to enterprise AI.",
+    bio: "I engineer decoupled, multi-container AI systems and autonomous agents using LangGraph, FastAPI, and Docker. Moving beyond basic API wrappers to deliver production-grade stability, sandboxed execution loops, and deterministic orchestration for enterprise AI.",
     email: "harsharma2029@gmail.com",
     location: "Gwalior, Madhya Pradesh, India",
     social: {
