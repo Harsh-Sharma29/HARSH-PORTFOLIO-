@@ -2,8 +2,9 @@
 
 export const personalInfo = {
     name: "Harsh Sharma",
-    role: "Software Engineer | AI & Backend",
-    bio: "Software Engineer focused on building scalable backend systems and practical AI applications. Experienced with microservices, retrieval-augmented generation (RAG), and modern web stacks.",
+    role: "AI Engineer | Building Production-Grade Agentic Infrastructure & Multi-Agent Systems",
+    headline: "AI Engineer | Building Production-Grade Agentic Infrastructure & Multi-Agent Systems",
+    bio: "Specialized in designing decoupled, multi-container AI architectures. I build autonomous software agents, low-latency voice interfaces, and stateful multi-agent orchestration layers using LangGraph, FastAPI, and Docker. Focused on breaking the constraints of standard wrapper apps by bringing production-grade stability, deterministic routing, and sandboxed execution loops to enterprise AI.",
     email: "harsharma2029@gmail.com",
     location: "Gwalior, Madhya Pradesh, India",
     social: {
@@ -11,99 +12,205 @@ export const personalInfo = {
         linkedin: "https://www.linkedin.com/in/harsh-sharma029/",
         twitter: "https://twitter.com/harshsharma",
     }
-    
 };
+
+export const projectSections = [
+    {
+        id: "agentic-infrastructure",
+        label: "Section A",
+        title: "Agentic AI Infrastructure & Microservices",
+        subtitle: "Production-grade orchestration meshes, autonomous agents, and sub-second real-time AI pipelines.",
+        accent: "accent",
+    },
+    {
+        id: "applied-ai",
+        label: "Section B",
+        title: "Applied AI, NLP & Enterprise Solutions",
+        subtitle: "Enterprise screening engines, semantic NLP systems, and full-stack applied AI products.",
+        accent: "muted",
+    },
+];
 
 export const projects = [
     {
         id: 1,
-        title: "Resume ATS Analyzer",
-        description: "An AI-powered tool to analyze resumes against job descriptions.",
-        longDescription: "Developed an application that uses NLP to extract skills from resumes and compares them with job descriptions to provide an ATS compatibility score.",
-        caseStudy: "The main challenge was parsing various resume formats (PDF, DOCX) and accurately extracting semantic meaning using NLP techniques.",
-        challenges: [
-            "Parsing heterogeneous resume formats",
-            "Extracting contextual skills using NLP",
-            "Designing an intuitive user interface"
+        section: "agentic-infrastructure",
+        title: "Nexus AI Orchestrator",
+        subtitle: "Production-Ready AI Service Mesh",
+        tagline: "A decentralized multi-container AI orchestration layer separating presentation from graph-intelligence.",
+        description: "A decentralized multi-container AI orchestration layer separating presentation from graph-intelligence.",
+        architectureDetail:
+            "Decoupled a thin Streamlit frontend from a heavy, asynchronous FastAPI/LangGraph backend worker process. This architectural barrier prevents blocking the UI event loop during long-running multi-agent node executions.",
+        engineeringImpact: [
+            "Built a stateful multi-agent mesh orchestrating autonomous Chat, RAG, SQL, Code, and Research agents with deterministic routing and contextual memory, boosting response relevance by 35%.",
+            "Implemented a FAISS-driven RAG pipeline hitting 95%+ retrieval accuracy with per-tenant workspace document isolation.",
+            "Containerized the entire stack using Docker-Compose and deployed it on an AWS EC2 instance reverse-proxied under a secure custom subdomain with stable TLS termination.",
         ],
-        detailedStack: ["Python", "Streamlit", "NLP", "OpenAI API", "PyPDF2"],
-        image: "/projects/ats-analyzer.jpg",
-        tags: ["Python", "NLP", "Streamlit"],
-        stack: ["Python", "Streamlit", "NLP"],
-        demoUrl: "https://ai-resume-ats-analyzer.onrender.com/",
-        githubUrl: "https://github.com/Harsh-Sharma29",
-        featured: true,
+        stack: ["Python", "LangGraph", "FastAPI", "Docker-Compose", "FAISS", "Gemini API", "SQLite", "AWS EC2", "Streamlit"],
+        links: [
+            { label: "Live App", url: "https://nexus-ai-orchestrator.scholarme.in/", variant: "primary" },
+            { label: "GitHub Codebase", url: "https://github.com/Harsh-Sharma29", variant: "secondary" },
+        ],
         status: "completed",
+        featured: true,
     },
     {
         id: 2,
-        title: "Travacasa",
-        description: "A comprehensive travel booking and management platform.",
-        longDescription: "Built a full-stack web application for travelers to discover destinations, book accommodations, and manage their itineraries seamlessly.",
-        caseStudy: "Focused on creating a responsive and visually appealing UI while ensuring secure backend transactions and efficient database queries.",
-        challenges: [
-            "Implementing secure payment gateways",
-            "Handling complex database relations for bookings",
-            "Ensuring real-time availability updates"
+        section: "agentic-infrastructure",
+        title: "Devin's Brother",
+        subtitle: "Autonomous Software Engineering Agent",
+        tagline: "A self-correcting, tool-enabled autonomous agent built to execute complex, multi-step code generation and terminal debugging tasks.",
+        description: "A self-correcting, tool-enabled autonomous agent built to execute complex, multi-step code generation and terminal debugging tasks.",
+        architectureDetail:
+            "Leveraged LangChain's ReAct framework to implement an explicit execution-verification-correction loop. The agent evaluates terminal error outputs and rewrites script logic autonomously.",
+        engineeringImpact: [
+            "Engineered a sandboxed runtime environment utilizing isolated Docker containers to execute agent-generated code safely without host system vulnerability.",
+            "Created structured tools for deep file-system manipulation, web-scraping pipelines, and shell execution, reducing automated script prototyping time by 50%.",
         ],
-        detailedStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-        image: "/projects/travacasa.jpg",
-        tags: ["React", "Node.js", "MongoDB"],
-        stack: ["React", "Node.js", "Express", "MongoDB"],
-        demoUrl: "https://travacasa.onrender.com/listings",
-        githubUrl: "https://github.com/Harsh-Sharma29",
-        featured: true,
+        stack: ["Python", "LangChain", "ReAct Framework", "Docker Sandbox", "OpenAI/Gemini API", "Shell Tools", "Pydantic v2"],
+        links: [
+            { label: "GitHub Repository", url: "https://github.com/Harsh-Sharma29", variant: "secondary" },
+        ],
         status: "completed",
+        featured: true,
     },
     {
         id: 3,
-        title: "Nexus AI Orchestrator",
-        description: "Advanced multi-agent AI orchestration platform.",
-        longDescription: "Developed an advanced orchestrator that coordinates multiple AI agents to solve complex, multi-step tasks by intelligently routing sub-tasks to specialized models.",
-        caseStudy: "Designed a graph-based execution flow that dynamically adjusts routing based on agent performance and context.",
-        challenges: [
-            "Managing state across multiple agent interactions",
-            "Optimizing the latency of multi-agent workflows",
-            "Implementing robust error handling and fallbacks"
+        section: "agentic-infrastructure",
+        title: "Full-Duplex Real-Time Voice Agent",
+        subtitle: "Sub-200ms Conversational Pipeline",
+        tagline: "A sub-200ms low-latency conversational voice assistant running on asynchronous event-driven pipelines.",
+        description: "A sub-200ms low-latency conversational voice assistant running on asynchronous event-driven pipelines.",
+        architectureDetail:
+            "Constructed an asynchronous, bi-directional audio streaming layer using WebSockets and asyncio workers to handle simultaneous human speech parsing and agent response streaming.",
+        engineeringImpact: [
+            "Integrated LiveKit / WebRTC transport protocols to maintain stable audio frames over volatile network conditions.",
+            "Optimized real-time interruption handling—allowing users to speak over the agent naturally, updating the graph state machine instantly without connection resets.",
         ],
-        detailedStack: ["Python", "LangChain", "LangGraph", "FastAPI"],
-        image: "/projects/nexus-ai.jpg",
-        tags: ["Python", "LangGraph", "Multi-Agent"],
-        stack: ["Python", "LangChain", "LangGraph"],
-        demoUrl: "https://nexus-ai-orchestrator.streamlit.app/",
-        githubUrl: "https://github.com/Harsh-Sharma29",
-        featured: true,
+        stack: ["Python", "FastAPI", "WebSockets", "LiveKit", "WebRTC", "Gemini Live API", "Asyncio"],
+        links: [
+            { label: "GitHub Repository", url: "https://github.com/Harsh-Sharma29", variant: "secondary" },
+        ],
         status: "completed",
+        featured: true,
     },
     {
         id: 4,
-        title: "Disaster Shield",
-        description: "A real-time disaster alert and management system.",
-        longDescription: "Created a platform that monitors environmental data and provides real-time alerts for natural disasters, helping communities prepare and respond effectively.",
-        caseStudy: "Integrated third-party weather APIs and implemented WebSocket connections for instant alert delivery to users.",
-        challenges: [
-            "Handling high-throughput real-time data streams",
-            "Ensuring high availability during emergencies",
-            "Designing a low-latency alert distribution system"
+        section: "applied-ai",
+        title: "AI Resume ATS Analyzer",
+        subtitle: "Enterprise Screening Engine",
+        tagline: "An intelligent parsing and semantic scoring system matching candidate profiles against multi-variable job descriptions.",
+        description: "An intelligent parsing and semantic scoring system matching candidate profiles against multi-variable job descriptions.",
+        engineeringImpact: [
+            "Developed an advanced document parsing engine extracting entities (skills, experience, education) from complex PDF/DOCX layouts with 90%+ textual accuracy.",
+            "Implemented localized NLP-based keyword weighting and section-affinity metrics, generating a 0-100 compatibility matrix to scale recruitment matching efficiency by 60%.",
         ],
-        detailedStack: ["Node.js", "React", "WebSocket", "PostgreSQL", "Redis"],
-        image: "/projects/disaster-shield.jpg",
-        tags: ["Node.js", "React", "WebSocket"],
-        stack: ["Node.js", "React", "WebSocket"],
-        demoUrl: null,
-        githubUrl: "https://github.com/Harsh-Sharma29",
-        featured: true,
+        stack: ["Python", "NLP (spaCy/NLTK)", "Streamlit UI", "Advanced PDF/Docx Parsers", "Semantic Matchers"],
+        links: [
+            { label: "Live Demo", url: "https://ai-resume-ats-analyzer.onrender.com/", variant: "primary" },
+            { label: "GitHub Repository", url: "https://github.com/Harsh-Sharma29", variant: "secondary" },
+        ],
         status: "completed",
+        featured: true,
+    },
+    {
+        id: 5,
+        section: "applied-ai",
+        title: "Travacasa",
+        subtitle: "Travel Booking Platform",
+        tagline: "A comprehensive travel booking and management platform for discovering destinations and managing itineraries.",
+        description: "A comprehensive travel booking and management platform for discovering destinations and managing itineraries.",
+        engineeringImpact: [
+            "Built a responsive full-stack application with secure booking flows and efficient database queries across complex accommodation relations.",
+            "Implemented real-time availability updates and payment gateway integration for seamless end-to-end traveler experiences.",
+        ],
+        stack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+        links: [
+            { label: "Live Demo", url: "https://travacasa.onrender.com/listings", variant: "primary" },
+            { label: "GitHub Repository", url: "https://github.com/Harsh-Sharma29", variant: "secondary" },
+        ],
+        status: "completed",
+        featured: false,
+    },
+    {
+        id: 6,
+        section: "applied-ai",
+        title: "Disaster Shield",
+        subtitle: "Real-Time Alert System",
+        tagline: "A real-time disaster alert and management system monitoring environmental data for community preparedness.",
+        description: "A real-time disaster alert and management system monitoring environmental data for community preparedness.",
+        engineeringImpact: [
+            "Integrated third-party weather APIs with WebSocket connections for instant alert delivery to users.",
+            "Designed a low-latency alert distribution system built for high availability during emergency scenarios.",
+        ],
+        stack: ["Node.js", "React", "WebSocket", "PostgreSQL", "Redis"],
+        links: [
+            { label: "GitHub Repository", url: "https://github.com/Harsh-Sharma29", variant: "secondary" },
+        ],
+        status: "completed",
+        featured: false,
     },
 ];
 
-export const skills = {
-    languages: ["JavaScript (ES6+)", "Python", "TypeScript", "SQL", "Java", "C++"],
-    backend: ["Node.js", "Express", "FastAPI", "PostgreSQL", "MongoDB", "Redis", "Docker"],
-    frontend: ["React", "Next.js", "Tailwind CSS", "HTML5", "CSS3"],
-    ai: ["LangChain", "LangGraph", "OpenAI API", "Hugging Face", "RAG Systems", "Vector Databases"],
-    tools: ["Git", "AWS (EC2, S3)", "Linux", "CI/CD", "Postman", "Vercel"],
-};
+export const skillPillars = [
+    {
+        id: "agentic",
+        title: "Agentic Frameworks & Core AI",
+        highlight: true,
+        variant: "agentic",
+        skills: [
+            "LangGraph",
+            "LangChain",
+            "ReAct Framework",
+            "Multi-Agent Mesh Design",
+            "Tool Invocation",
+            "Autonomous Loop Control",
+            "Structured Outlines (Pydantic v2)",
+        ],
+    },
+    {
+        id: "infrastructure",
+        title: "Backend & MLOps Infrastructure",
+        highlight: true,
+        variant: "infrastructure",
+        skills: [
+            "Asynchronous Python (asyncio)",
+            "FastAPI",
+            "Docker",
+            "Docker-Compose",
+            "WebSockets",
+            "AWS EC2",
+            "Linux Shell Scripting",
+            "Reverse Proxy (Nginx/TLS termination)",
+        ],
+    },
+    {
+        id: "data",
+        title: "Data Planes & Vector Semantics",
+        highlight: false,
+        variant: "data",
+        skills: [
+            "FAISS Vector DB",
+            "ChromaDB",
+            "Document Parsing Pipelines",
+            "Semantic Search Optimization",
+            "SQLite",
+            "PostgreSQL",
+        ],
+    },
+    {
+        id: "frontend",
+        title: "Frontend & Frontend-AI Delivery",
+        highlight: false,
+        variant: "frontend",
+        skills: [
+            "Streamlit (Enterprise AI UX)",
+            "React.js",
+            "TailwindCSS",
+            "WebRTC / LiveKit (Audio Transport)",
+        ],
+    },
+];
 
 export const experience = [
     {

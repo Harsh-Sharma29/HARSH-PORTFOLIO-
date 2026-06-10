@@ -1,254 +1,60 @@
-# Premium Portfolio Website
+# 🌟 Core AI Engineer Portfolio | Agentic AI & Infrastructure
 
-A modern, dynamic, and visually stunning personal portfolio built with React, Vite, Framer Motion, and Tailwind CSS. Features a dark theme with purple-pink gradient accents, smooth animations, and a functional contact form backend.
-
-![Portfolio Preview](./preview.png)
-
-## 🎯 Features
-
-- **Premium Dark Theme** with purple-pink gradient accents
-- **Smooth Animations** using Framer Motion
-- **Responsive Design** for all devices (mobile, tablet, desktop)
-- **Interactive Elements** with hover effects and micro-interactions
-- **Functional Contact Form** with backend API
-- **Scroll-based Animations** for engaging user experience
-- **Project Showcase** with modal detail views
-- **Skills Display** with animated progress indicators
-- **Timeline Experience** section with scroll animations
-- **SEO Optimized** with proper meta tags
-- **Accessible** with ARIA labels and keyboard navigation
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **React** - UI library
-- **Vite** - Build tool and dev server
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **Lucide React** - Icon library
-
-### Backend
-- **Express.js** - Node.js web framework
-- **Nodemailer** - Email sending
-- **CORS** - Cross-origin resource sharing
-- **Dotenv** - Environment variable management
-
-## 📦 Installation
-
-### Frontend Setup
-
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
-### Backend Setup
-
-```bash
-# Navigate to backend directory
-cd backend
-
-# Install dependencies
-npm install
-
-# Create .env file from example
-copy .env.example .env
-
-# Edit .env with your SMTP credentials
-# Then start the server
-npm start
-```
-
-## 🔧 Configuration
-
-### Environment Variables (Backend)
-
-Create a `.env` file in the `backend` directory:
-
-```env
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your-email@gmail.com
-SMTP_PASS=your-app-password
-FRONTEND_URL=http://localhost:5173
-PORT=3001
-```
-
-**Note:** For Gmail, you need to use an [App Password](https://support.google.com/accounts/answer/185833) instead of your regular password.
-
-### Customizing Content
-
-Edit `src/data/content.js` to update:
-- Personal information (name, email, bio, social links)
-- Projects (title, description, tags, links)
-- Skills (categories and proficiency levels)
-- Work experience (company, position, duration)
-
-## 🚀 Deployment
-
-### Frontend Deployment (Vercel/Netlify)
-
-1. **Vercel:**
-   ```bash
-   npm run build
-   vercel --prod
-   ```
-
-2. **Netlify:**
-   ```bash
-   npm run build
-   # Deploy the `dist` folder
-   ```
-
-### Backend Deployment (Railway/Render)
-
-1. **Railway:**
-   - Connect your GitHub repository
-   - Set environment variables
-   - Deploy from `backend` directory
-
-2. **Render:**
-   - Create new Web Service
-   - Point to `backend` folder
-   - Add environment variables
-   - Deploy
-
-### CORS Configuration
-
-Update `backend/server.js` CORS origin to match your deployed frontend URL:
-
-```javascript
-app.use(cors({
-  origin: 'https://your-portfolio.vercel.app',
-  credentials: true
-}));
-```
-
-## 📁 Project Structure
-
-```
-Portfolio/
-├── src/
-│   ├── components/          # React components
-│   │   ├── Navbar.jsx
-│   │   ├── Hero.jsx
-│   │   ├── Projects.jsx
-│   │   ├── ProjectCard.jsx
-│   │   ├── ProjectModal.jsx
-│   │   ├── Skills.jsx
-│   │   ├── Experience.jsx
-│   │   ├── Contact.jsx
-│   │   ├── Footer.jsx
-│   │   └── FloatingShapes.jsx
-│   ├── hooks/               # Custom React hooks
-│   │   ├── useInView.js
-│   │   └── useScrollPosition.js
-│   ├── data/                # Static content
-│   │   └── content.js
-│   ├── App.jsx              # Main app component
-│   ├── index.css            # Global styles
-│   └── main.jsx             # App entry point
-├── backend/
-│   ├── server.js            # Express API server
-│   ├── package.json
-│   └── .env.example
-├── public/                  # Static assets
-│   ├── profile.jpg
-│   └── resume.pdf
-├── package.json
-├── tailwind.config.js       # Tailwind configuration
-├── vite.config.js           # Vite configuration
-└── README.md
-```
-
-## 🎨 Design System
-
-### Colors
-- **Primary:** Purple shades (#a855f7, #9333ea, #7e22ce)
-- **Accent Pink:** #ec4899
-- **Accent Purple:** #a855f7
-- **Accent Blue:** #3b82f6
-- **Dark Backgrounds:** #0a0a0a, #121212, #1a1a1a
-
-### Animations
-- Pulse glow effect on profile image
-- Typewriter effect for role text
-- Scroll-based reveal animations
-- Hover tilt on project cards
-- Smooth page transitions
-
-### Typography
-- Font Family: Inter, system-ui
-- Gradient text for headings
-- Clear hierarchy with proper sizing
-
-## 🔍 SEO & Accessibility
-
-- Semantic HTML elements
-- ARIA labels for interactive elements
-- Keyboard navigation support
-- Focus visible styles
-- Alt text for images
-- Proper heading structure
-- Meta tags for social sharing
-
-## 📱 Responsive Breakpoints
-
-- Mobile: < 768px
-- Tablet: 768px - 1024px
-- Desktop: > 1024px
-
-## 🐛 Troubleshooting
-
-### Contact Form Not Working
-
-1. Check backend server is running on port 3001
-2. Verify CORS settings in `backend/server.js`
-3. Ensure .env file has correct SMTP credentials
-4. Check browser console for errors
-
-### Animations Not Smooth
-
-1. Ensure Framer Motion is installed
-2. Check browser hardware acceleration
-3. Reduce animation complexity if needed
-
-### Build Errors
-
-1. Delete `node_modules` and reinstall:
-   ```bash
-   rm -rf node_modules
-   npm install
-   ```
-2. Clear Vite cache:
-   ```bash
-   npm run build -- --force
-   ```
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-This is a personal portfolio template. Feel free to fork and customize for your own use!
-
-## 📧 Contact
-
-For questions or feedback, you can reach me at:
-- Email: alex.johnson@example.com
-- GitHub: [@alexjohnson](https://github.com/alexjohnson)
-- LinkedIn: [Alex Johnson](https://linkedin.com/in/alexjohnson)
+Welcome to my core engineering portfolio repository. This space showcases production-grade architectures, autonomous multi-agent meshes, and low-latency interactive intelligence systems designed to bridge the gap between static LLM wrappers and deterministic enterprise software systems.
 
 ---
 
-**Built with ❤️ using React, Vite, Framer Motion, and Tailwind CSS**
+## 🎯 Professional Overview
+
+- **Core Focus:** Multi-Agent Orchestration, Stateful Workflows, Sandboxed Code Execution, Real-Time Audio Streaming, MLOps & Containerization.
+- **Philosophy:** Engineering resilient AI systems with strict guardrails, async thread-safety, and optimized retrieval-augmented data flows.
+
+---
+
+## 🛠️ Architectural Skills Matrix
+
+| Specialization | Technologies & Core Frameworks |
+| :--- | :--- |
+| **Agentic AI & Orchestration** | LangGraph, LangChain, ReAct Framework, Multi-Agent Mesh, Structured Tool Use |
+| **Backend & Core MLOps** | Asynchronous Python (asyncio), FastAPI, Docker, Docker-Compose, WebSockets, AWS EC2 |
+| **Data Plane & Semantics** | FAISS, ChromaDB, Advanced Layout PDF/Docx Parsing, SQLite, Semantic Search Weighting |
+| **Frontend & Voice Transport** | Streamlit (Enterprise AI UX), React.js, TailwindCSS, LiveKit, WebRTC |
+
+---
+
+## 🚀 Highlighted Production Projects
+
+### 1. Nexus AI Orchestrator (Multi-Container AI Service Mesh)
+
+- **Architecture:** Fully decoupled microservices stack separating a thin, thread-safe Streamlit client from a heavyweight FastAPI backend and async LangGraph engine.
+- **Impact:** Built deterministic stateful routing for Chat, RAG, SQL, Code, and Research specialists with shared context memory, increasing query relevance by **35%** and achieving **95%+ RAG retrieval accuracy** via FAISS.
+- **Infrastructure:** Containerized via Docker-Compose and deployed live on an AWS EC2 instance behind an Nginx reverse-proxy with secure TLS termination.
+- **Live:** [nexus-ai-orchestrator.scholarme.in](https://nexus-ai-orchestrator.scholarme.in/)
+
+### 2. Devin's Brother (Autonomous Software Engineering Agent)
+
+- **Architecture:** Implemented an autonomous execution-verification-correction loop based on the ReAct prompting pattern to automate scripting and debugging.
+- **Impact:** Engineered a secure, isolated Docker sandbox runtime environment allowing the agent to safely execute shell commands and file-system updates, slashing script prototyping latency by **50%**.
+
+### 3. Asynchronous Full-Duplex Real-Time Voice Agent
+
+- **Architecture:** An event-driven, low-latency streaming architecture utilizing stateful WebSockets and asyncio workers to handle parallel audio frame rendering.
+- **Impact:** Integrated LiveKit/WebRTC to stream continuous audio payloads under **200ms latency** with built-in state-machine reset capabilities for natural user interruptions.
+
+---
+
+## 📂 Repository Structure Guardrails
+
+All standalone core systems are isolated under their respective repository umbrellas to prevent code bloating, package configuration dependency drift, and maintain containerization modularity.
+
+---
+
+## 🌐 Connect & Collaborate
+
+- **Portfolio Website:** [github.com/Harsh-Sharma29/Portfolio](https://github.com/Harsh-Sharma29/Portfolio)
+- **LinkedIn:** [linkedin.com/in/harsh-sharma029](https://www.linkedin.com/in/harsh-sharma029/)
+- **Email:** [harsharma2029@gmail.com](mailto:harsharma2029@gmail.com)
+
+---
+
+*Maintained with strict linting and production-first deployment standards.*

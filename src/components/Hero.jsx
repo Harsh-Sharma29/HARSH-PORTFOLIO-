@@ -1,13 +1,11 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Github, Linkedin, Mail, ArrowDown, FileText, Sparkles, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowDown, Sparkles, Download } from 'lucide-react';
 import { personalInfo } from '../data/content';
 import { useRef } from 'react';
 
-/* ── Breathing Gradient Ring (Profile Image) ─────────────────────── */
 function ProfileImage() {
     return (
         <div className="relative w-44 h-44 md:w-52 md:h-52 flex items-center justify-center">
-            {/* Outer breathing ring */}
             <motion.div
                 className="absolute w-56 h-56 md:w-64 md:h-64 rounded-full opacity-50 blur-2xl"
                 style={{
@@ -21,7 +19,6 @@ function ProfileImage() {
                 }}
             />
 
-            {/* Inner counter-pulse ring */}
             <motion.div
                 className="absolute w-48 h-48 md:w-56 md:h-56 rounded-full opacity-40 blur-xl"
                 style={{
@@ -35,24 +32,20 @@ function ProfileImage() {
                 }}
             />
 
-            {/* Photo Container */}
             <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden ring-2 ring-white/10 z-10">
                 <img
                     src="/HARSH_PHOTO.jpg"
                     alt={personalInfo.name}
                     className="w-full h-full object-cover"
                 />
-                {/* Inner shine */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent" />
             </div>
 
-            {/* Status Dot */}
             <div className="absolute bottom-3 right-3 z-10 status-dot ring-4 ring-background" />
         </div>
     );
 }
 
-/* ── Hero Section ────────────────────────────────────────────────── */
 export default function Hero() {
     const containerRef = useRef(null);
     const mouseX = useMotionValue(0);
@@ -85,7 +78,7 @@ export default function Hero() {
             transition: {
                 duration: 0.8,
                 delay: i * 0.15,
-                ease: [0.25, 0.4, 0.25, 1]
+                ease: [0.25, 0.4, 0.25, 1],
             },
         }),
     };
@@ -103,20 +96,27 @@ export default function Hero() {
             ref={containerRef}
             onMouseMove={handleMouseMove}
         >
-            {/* Animated Gradient Orbs */}
             <div className="glow-orb w-[600px] h-[600px] bg-accent/20 top-[-200px] left-[-200px] animate-pulse-glow" />
-            <div className="glow-orb w-[500px] h-[500px] bg-violet-500/15 bottom-[-100px] right-[-100px] animate-pulse-glow" style={{ animationDelay: '1s' }} />
-            <div className="glow-orb w-[300px] h-[300px] bg-cyan-500/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" style={{ animationDelay: '2s' }} />
+            <div
+                className="glow-orb w-[500px] h-[500px] bg-violet-500/15 bottom-[-100px] right-[-100px] animate-pulse-glow"
+                style={{ animationDelay: '1s' }}
+            />
+            <div
+                className="glow-orb w-[300px] h-[300px] bg-cyan-500/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow"
+                style={{ animationDelay: '2s' }}
+            />
 
-            {/* Grid Pattern Overlay */}
-            <div className="absolute inset-0 opacity-[0.02]" style={{
-                backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-                backgroundSize: '60px 60px'
-            }} />
+            <div
+                className="absolute inset-0 opacity-[0.02]"
+                style={{
+                    backgroundImage:
+                        'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+                    backgroundSize: '60px 60px',
+                }}
+            />
 
             <div className="container-wide relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
-                    {/* Breathing Gradient Ring Photo */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -127,18 +127,24 @@ export default function Hero() {
                         <ProfileImage />
                     </motion.div>
 
-                    {/* Content */}
-                    <div className="flex-1 text-center lg:text-left max-w-2xl">
-                        {/* Eyebrow */}
+                    <div className="flex-1 text-center lg:text-left max-w-3xl">
                         <motion.div
                             custom={0}
                             variants={fadeUp}
                             initial="hidden"
                             animate="visible"
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6"
+                            className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6"
                         >
-                            <Sparkles size={14} className="text-accent-light" />
-                            <span className="text-small font-medium text-accent-light">Available for opportunities</span>
+                            <span className="text-small font-mono text-muted tracking-wide">
+                                {personalInfo.name}
+                            </span>
+                            <span className="hidden sm:inline text-muted/40">·</span>
+                            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20">
+                                <Sparkles size={12} className="text-accent-light" />
+                                <span className="text-small font-medium text-accent-light">
+                                    Open to opportunities
+                                </span>
+                            </span>
                         </motion.div>
 
                         <motion.h1
@@ -146,9 +152,9 @@ export default function Hero() {
                             variants={fadeUp}
                             initial="hidden"
                             animate="visible"
-                            className="text-display md:text-display-lg text-gradient mb-6"
+                            className="text-headline sm:text-display md:text-display-lg text-gradient mb-6 text-balance tracking-tight"
                         >
-                            {personalInfo.name}
+                            {personalInfo.headline}
                         </motion.h1>
 
                         <motion.p
@@ -156,12 +162,9 @@ export default function Hero() {
                             variants={fadeUp}
                             initial="hidden"
                             animate="visible"
-                            className="text-body-lg text-muted leading-relaxed mb-10"
+                            className="text-body lg:text-body-lg text-muted leading-relaxed mb-10 max-w-2xl mx-auto lg:mx-0 tracking-normal"
                         >
-                            Building robust software systems today, while moving deeper into{' '}
-                            <span className="text-accent-light font-medium">AI</span> and intelligent applications.
-                            Drawn to clean architecture, scalable infrastructure, and solving hard problems with
-                            thoughtful engineering.
+                            {personalInfo.bio}
                         </motion.p>
 
                         <motion.div
@@ -171,7 +174,10 @@ export default function Hero() {
                             animate="visible"
                             className="flex flex-wrap gap-4 justify-center lg:justify-start mb-10"
                         >
-                            <button onClick={scrollToProjects} className="btn btn-lg btn-primary btn-shimmer">
+                            <button
+                                onClick={scrollToProjects}
+                                className="btn btn-lg btn-primary btn-shimmer"
+                            >
                                 View Projects
                                 <ArrowDown size={18} />
                             </button>
@@ -209,7 +215,6 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Scroll Indicator */}
             <motion.div
                 className="absolute bottom-10 left-1/2 -translate-x-1/2"
                 initial={{ opacity: 0, y: -10 }}
@@ -218,7 +223,7 @@ export default function Hero() {
             >
                 <motion.div
                     animate={{ y: [0, 8, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                     className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-2"
                 >
                     <motion.div className="w-1 h-2 bg-accent rounded-full" />
